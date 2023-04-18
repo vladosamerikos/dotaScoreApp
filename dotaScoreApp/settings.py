@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'dotaScore',
     'channels',
 ]
 
@@ -135,3 +135,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Web chat
+
+# https://blog.logrocket.com/build-chat-application-react-django-channels/
+
+ASGI_APPLICATION = "dotaScore.routing.application" #routing.py will handle the ASGI
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': "channels.layers.InMemoryChannelLayer"
+        }
+    }
